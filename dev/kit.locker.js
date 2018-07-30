@@ -20,7 +20,8 @@ window.kit = document.kit;
 // == Глобальные методы ==
 
 // == Коллбеки ==
-
+//onLock
+//onRelease
 // == Полезные параметры ==
 
 // =Дополнительное=
@@ -32,6 +33,9 @@ class KitLocker {
 		this.id = id;
 		this.lockKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
 		this.active = false;
+
+		this.onLock = false;
+		this.onRelease = false;
 	}
 
 	lock = () => {if(isScroll()) lockScroll(this)};
@@ -40,9 +44,8 @@ class KitLocker {
 
 document.kit.locker.createLocker = (params) => {
 	if(document.kit.locker['instance']) return new Error('Kit Locker already exist');
-	const l = new KitLocker('locker');
+	const l = params ? Object.assign(new KitLocker('locker'),params) : new KitLocker('locker');
 	document.kit.locker['instance'] = l;
-	if(params) Object.assign(l,params);
 	l.overlay = createOverlay('kit-locker-overlay');
 	l.fixed = document.querySelectorAll('.kit-set-fixed');
 	document.kit.locker.lock = l.lock;
@@ -69,6 +72,7 @@ function lockScroll (obj) {
 		obj.fixed[t].style.paddingRight = padding;
 	});
 	obj.active = true;
+	if(obj.onLock) obj.onLock();
 }
 
 function releaseScroll(obj) {
@@ -82,6 +86,7 @@ function releaseScroll(obj) {
 	obj.overlay.kitRemoveClass('kit-locker-overlay-scroll');
 	obj.overlay.kitAddClass('kit-none');
 	obj.active = false;
+	if(obj.onRelease) obj.onRelease();
 }
 
 function preventDefault(e) {
