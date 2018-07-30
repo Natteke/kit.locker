@@ -7,8 +7,8 @@
     "start": "npm run dev",
     "server:dev": "webpack-dev-server --open --config webpack.dev.js",
     "server:prod": "webpack-dev-server --open --config webpack.prod.js",
-    "dev": "webpack --config webpack.dev.js && cp dev/kit.locker.css dist/kit.locker.css && cp -a dist/. /Users/andrejponomarenko/Projects/kit/plugins/locker",
-    "prod": "webpack --config webpack.prod.js &&  cp -a dev/templates prod &&  cp -a dev/kit.locker.css prod && zip -r prod/kit.locker.zip prod",
+    "dev": "webpack --config webpack.dev.js && cp -a dist/. /Users/andrejponomarenko/Projects/kit/plugins/locker",
+    "prod": "webpack --config webpack.prod.js && zip -r prod/kit.locker.zip prod && npm run toWeb",
     "toWeb": "cp -R -a prod/. /Users/andrejponomarenko/Projects/kit/plugins/locker"
   },
   "repository": {

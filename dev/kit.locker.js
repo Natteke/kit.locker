@@ -30,6 +30,7 @@ window.kit = document.kit;
 class KitLocker {
 	constructor(id) {
 		this.id = id;
+		this.lockKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40];
 		this.active = false;
 	}
 
@@ -54,26 +55,30 @@ function createOverlay (className) {
 }
 
 function lockScroll (obj) {
-	let width = document.documentElement.offsetWidth;
+	let d = document.documentElement,
+	width = d.offsetWidth;
 	document.addEventListener('touchmove', preventDefault,{passive:false});
 	document.addEventListener('gesturechange', preventDefault);
 	document.addEventListener('keydown', preventKeys.bind(obj));
-	document.documentElement.kitAddClass('kit-locker-document');
+	d.kitAddClass('kit-locker-document');
 	obj.overlay.kitAddClass('kit-locker-overlay-scroll');
 	obj.overlay.kitRemoveClass('kit-none');
+	const padding = (d.offsetWidth - width) + 'px';
+	d.style.paddingRight = padding;
 	Object.keys(obj.fixed).forEach((t) => {
-		obj.fixed[t].style.paddingRight = (obj.overlay.offsetWidth - width) + 'px';
+		obj.fixed[t].style.paddingRight = padding;
 	});
 	obj.active = true;
 }
 
 function releaseScroll(obj) {
+	const d = document.documentElement;
 	document.removeEventListener('touchmove', preventDefault,{passive:false});
 	document.removeEventListener('gesturechange', preventDefault);
 	document.removeEventListener('keydown', preventKeys.bind(obj));
-
-	Object.keys(obj.fixed).forEach((t) =>obj.fixed[t].style.paddingRight = '');
-	document.documentElement.kitRemoveClass('kit-locker-document');
+	d.style.paddingRight = '';
+	Object.keys(obj.fixed).forEach((t) => obj.fixed[t].style.paddingRight = '');
+	d.kitRemoveClass('kit-locker-document');
 	obj.overlay.kitRemoveClass('kit-locker-overlay-scroll');
 	obj.overlay.kitAddClass('kit-none');
 	obj.active = false;
