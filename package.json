@@ -1,0 +1,41 @@
+{
+  "name": "kit.modal",
+  "version": "1.1.0",
+  "description": "Modal window plugin",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "server:dev": "webpack-dev-server --open --config webpack.dev.js",
+    "server:prod": "webpack-dev-server --open --config webpack.prod.js",
+    "dev": "webpack --config webpack.dev.js && cp dev/kit.locker.css dist/kit.locker.css && cp -a dist/. /Users/andrejponomarenko/Projects/kit/plugins/locker",
+    "prod": "webpack --config webpack.prod.js &&  cp -a dev/templates prod &&  cp -a dev/kit.locker.css prod && zip -r prod/kit.locker.zip prod",
+    "toWeb": "cp -R -a prod/. /Users/andrejponomarenko/Projects/kit/plugins/locker"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Natteke/kit.modal.git"
+  },
+  "author": "Andrey Ponomarenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Natteke/kit.modal/issues"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.11",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.1",
+    "source-map-loader": "^0.2.3",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.11.1",
+    "webpack-cli": "^3.0.3",
+    "webpack-dev-server": "^3.1.4",
+    "zip-webpack-plugin": "^3.0.0"
+  },
+  "homepage": "https://github.com/Natteke/kit.modal#readme"
+}
