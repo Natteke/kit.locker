@@ -115,9 +115,3 @@ Element.prototype.kitRemoveClass = function (classN) {
 Element.prototype.kitHasClass = function (classN) {
 	return this.className.indexOf(classN) >= 0;
 };
-
-
-
-
-
-
