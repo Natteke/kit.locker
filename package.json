@@ -1,7 +1,7 @@
 {
-  "name": "kit.modal",
-  "version": "1.1.0",
-  "description": "Modal window plugin",
+  "name": "kit.locker",
+  "version": "1.0.1",
+  "description": "Scroll locker js plugin",
   "main": "index.js",
   "scripts": {
     "start": "npm run dev",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Natteke/kit.modal.git"
+    "url": "git+https://github.com/Natteke/kit.locker.git"
   },
   "author": "Andrey Ponomarenko",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Natteke/kit.modal/issues"
+    "url": "https://github.com/Natteke/kit.locker/issues"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -37,5 +37,5 @@
     "webpack-dev-server": "^3.1.4",
     "zip-webpack-plugin": "^3.0.0"
   },
-  "homepage": "https://github.com/Natteke/kit.modal#readme"
+  "homepage": "https://github.com/Natteke/kit.locker#readme"
 }
