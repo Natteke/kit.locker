@@ -10,6 +10,9 @@ Light and easy way to prevent browser window from scrolling
 <link rel="stylesheet" href="/styles/kit.locker.min.css">
 ```
 ### JS
+```HTML
+<script src="/js/kit.locker.js"></script>
+```
 #### Initiation
 ```javascript
 kit.locker.createLocker();
