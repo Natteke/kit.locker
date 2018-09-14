@@ -37,7 +37,7 @@ kit.locker.unlock();
 ```
 
 ### Note
-If window have **no scroll** (means that content's height less than window's height), then there is nothing to block, so plugin not will block anything and no callbacks will be fired.
+If window have **no scroll** (means that content's height less than window's height), then there is nothing to block, so plugin will not block anything and no callbacks will be fired.
 
 Full guide could be found here:
 http://localhost:8080/kit/modal/docs
