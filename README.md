@@ -21,9 +21,12 @@ kit.locker.createLocker();
 Or with callbacks
 
 ```javascript
-kit.locker.createModal({
-    onLock: onScrollLock,
-    onRelease: onScrollRelease,
+function lockHandler(){
+ console.log("Page locked!")
+});
+
+kit.locker.createLocker({
+    onLock: lockHandler
 });
 ```
 ####Activate or deactivate
